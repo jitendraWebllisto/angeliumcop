@@ -23,6 +23,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ApiService } from './service/api.service';
 import { AuthGuard } from './service/auth.guard';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './component/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     XmallComponent,
     XcomicComponent,
     XschoolComponent,
-    LoaderComponent
+    LoaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

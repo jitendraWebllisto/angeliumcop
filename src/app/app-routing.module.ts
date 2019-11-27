@@ -6,6 +6,7 @@ import { XmallComponent } from './component/xmall/xmall.component';
 import { XcomicComponent } from './component/xcomic/xcomic.component';
 import { XschoolComponent } from './component/xschool/xschool.component';
 import { AuthGuard } from './service/auth.guard';
+import { RegisterComponent } from './component/register/register.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'xschool',component:XschoolComponent,
   canActivate: [AuthGuard]  
   },
+  {path:'register',component:RegisterComponent}
 ];
 
 @NgModule({
