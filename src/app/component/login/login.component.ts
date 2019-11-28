@@ -59,15 +59,15 @@ export class LoginComponent implements OnInit {
          }, 3000);
        this.spinner.hide();
         }
+
         if(res['token']){
           localStorage.setItem('token',res.token)
           this.apiservice.token = res['token'];
           this.router.navigate(['/dashboard']);
         }
         
-      }else{
-        
-      }
+      } 
+      
       error=>{
           console.log(error);
             this.errorDiv = true;

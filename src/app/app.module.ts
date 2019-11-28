@@ -24,6 +24,8 @@ import { ApiService } from './service/api.service';
 import { AuthGuard } from './service/auth.guard';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './component/register/register.component';
+import { DashboardModule} from './component/dashboard/dashboard.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,7 @@ import { RegisterComponent } from './component/register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,DashboardModule,
     ParticlesModule,ReactiveFormsModule,
     FormsModule,HttpClientModule,BrowserAnimationsModule,
     MatTableModule,MatFormFieldModule ,MatInputModule,MatButtonModule,
