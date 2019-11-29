@@ -7,7 +7,7 @@ import { ParticlesModule } from 'angular-particle';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule,} from '@angular/material/table';
 import { MatFormFieldModule ,MatInputModule } from '@angular/material';
@@ -25,6 +25,8 @@ import { AuthGuard } from './service/auth.guard';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './component/register/register.component';
 import { DashboardModule} from './component/dashboard/dashboard.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,19 @@ import { DashboardModule} from './component/dashboard/dashboard.module';
     MatTableModule,MatFormFieldModule ,MatInputModule,MatButtonModule,
     MatProgressSpinnerModule,NgxTypedJsModule,NgxSpinnerModule,
     ToastrModule.forRoot(),
-    DeviceDetectorModule.forRoot()
+    DeviceDetectorModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [ApiService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

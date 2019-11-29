@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-xmall',
@@ -7,18 +8,27 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./xmall.component.css']
 })
 export class XmallComponent implements OnInit {
+  user = {
+    name: 'Jeet',
+    age: 24
+  };
   deviceInfo = null;
-  constructor(private deviceService: DeviceDetectorService) { 
-    this.epicFunction();
+  constructor(private deviceService: DeviceDetectorService,
+    private translate: TranslateService) { 
+    this.trackFunction();
+    translate.setDefaultLang('en');
 
   }
 
   ngOnInit() {
-    // this.epicFunction();
+  
   }
   
-  epicFunction() {
-    console.log('hello `Home` component');
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
+
+  trackFunction() {
     this.deviceInfo = this.deviceService.getDeviceInfo();
     const isMobile = this.deviceService.isMobile();
     const isTablet = this.deviceService.isTablet();
