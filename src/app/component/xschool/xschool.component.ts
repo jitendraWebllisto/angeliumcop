@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { SwUpdate } from '@angular/service-worker';exit
+
 
 @Component({
   selector: 'app-xschool',
